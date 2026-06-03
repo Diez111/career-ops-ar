@@ -1,93 +1,125 @@
-# Career-Ops Profile Configuration
-# Copy this file to config/profile.yml and fill in your details.
-# This is the single source of truth for your personal data across all modes.
+# Career-Ops — Configuración de Perfil (Argentina)
+# Copiá este archivo a config/profile.yml y completalo con tus datos.
+# Esta es la fuente de verdad única para tus datos personales en todos los modos.
 
 candidate:
-  full_name: "Jane Smith"
-  email: "jane@example.com"
-  phone: "+1-555-0123"
-  location: "San Francisco, CA"
-  linkedin: "linkedin.com/in/janesmith"
-  portfolio_url: "https://janesmith.dev"
-  github: "github.com/janesmith"
-  twitter: "https://x.com/janesmith"
+  full_name: "Juan Pérez"
+  email: "juan@ejemplo.com.ar"
+  phone: "+54 11 5555-0123"
+  location: "Buenos Aires, CABA, Argentina"
+  linkedin: "linkedin.com/in/juanperez"
+  portfolio_url: "https://juanperez.com.ar"
+  github: "github.com/juanperez"
+  twitter: "https://x.com/juanperez"
 
 target_roles:
-  # Your North Star roles — what you're optimizing for
+  # Tus roles North Star — para lo que estás optimizando
   primary:
-    - "Senior AI Engineer"
-    - "Staff ML Engineer"
-  # Archetypes help the evaluation system score fit
+    - "Desarrollador Backend Senior"
+    - "Tech Lead"
+  # Arquetipos que ayudan al sistema de evaluación a puntuar fit
   archetypes:
-    - name: "AI/ML Engineer"
-      level: "Senior/Staff"
-      fit: "primary"        # primary = dream role, secondary = good fit, adjacent = stretch
-    - name: "AI Product Manager"
+    - name: "Desarrollador Backend"
       level: "Senior"
+      fit: "primary"        # primary = rol soñado, secondary = buen fit, adjacent = estirable
+    - name: "DevOps / SRE"
+      level: "Semi-Senior"
       fit: "secondary"
-    - name: "Solutions Architect"
-      level: "Mid-Senior"
+    - name: "Liderazgo Técnico"
+      level: "Lead"
+      fit: "secondary"
+    - name: "Producto Técnico"
+      level: "Semi-Senior"
       fit: "adjacent"
 
 narrative:
-  # Your professional headline (1 line)
-  headline: "ML Engineer turned AI product builder"
-  # Your exit story — what makes you unique
-  exit_story: "Built and sold my SaaS after 5 years. Now focused on applied AI at scale."
-  # Your top 3-5 superpowers
+  # Tu titular profesional (1 línea)
+  headline: "Desarrollador Backend que arma sistemas escalables"
+  # Tu historia de salida — qué te hace único
+  exit_story: "5 años armando APIs y microservicios en producción para fintech y e-commerce."
+  # Tus top 3-5 superpoderes
   superpowers:
-    - "End-to-end ML pipelines"
-    - "Fast prototyping (idea to prod in 2 weeks)"
-    - "Cross-functional communication"
-  # Proof points — projects, articles, case studies with measurable impact
+    - "APIs REST y GraphQL de alto rendimiento"
+    - "Arquitectura de microservicios en AWS"
+    - "Prototipado rápido con métricas de impacto"
+  # Proof points — proyectos, artículos, casos de estudio con impacto medible
   proof_points:
-    - name: "Project Alpha"
-      url: "https://janesmith.dev/project-alpha"
-      hero_metric: "Reduced inference latency 40%"
-    - name: "Open Source Tool"
-      url: "https://github.com/janesmith/tool"
-      hero_metric: "2K+ GitHub stars"
-  # Optional: dashboard/demo URL with credentials
-  # dashboard:
-  #   url: "https://janesmith.dev/demo"
-  #   password: "demo-2026"
+    - name: "API de Procesamiento de Pagos"
+      url: "https://juanperez.com.ar/proyectos/api-pagos"
+      hero_metric: "Reducción de latencia p95 de 2.1s a 380ms"
+    - name: "Herramienta Open Source"
+      url: "https://github.com/juanperez/tool"
+      hero_metric: "500+ estrellas GitHub"
 
 compensation:
-  target_range: "$150K-200K"     # Your target total comp
-  currency: "USD"
-  minimum: "$120K"               # Walk-away number
-  location_flexibility: "Remote preferred, 1 week/month on-site possible"
+  target_range: "$2.500.000-4.000.000 ARS"     # Tu compensación total objetivo (bruto mensual)
+  target_range_usd: "$4.000-6.500 USD"           # Tu compensación objetivo contractor (mensual USD)
+  currency: "ARS"
+  minimum_ars: "$1.800.000 ARS"                  # Número de retirada para relación de dependencia
+  minimum_usd: "$3.000 USD"                      # Número de retirada para contractor
+  location_flexibility: "Remoto preferido. Híbrido CABA 2-3 días aceptable."
+  # Tipos de contratación que aceptás
+  contract_types:
+    - "relacion_dependencia"    # En blanco, con aportes, aguinaldo, obra social
+    - "monotributo"             # Facturación como autónomo
+    - "contractor_usd"          # Pago en dólares, empresa del exterior
 
 location:
-  country: "United States"
-  city: "San Francisco"
-  timezone: "PST"
-  visa_status: "No sponsorship needed"
-  # For remote roles outside your country:
-  # onsite_availability: "1 week/month in any city"
+  country: "Argentina"
+  city: "Buenos Aires"
+  province: "CABA"
+  timezone: "GMT-3 (ART)"
+  visa_status: "Ciudadano argentino"
+  relocation: "No"
+  # Para roles remotos fuera de Argentina:
+  remote_availability: "Full remoto. Solapamiento horario con USA/UE negociable."
+
+language:
+  # Idioma de los modos
+  modes_dir: "modes/es"            # Usar modos en español argentino
+  cv_output_language: "es"         # Idioma del CV generado
+  jd_fallback_language: "es"       # Idioma por defecto si no se detecta
 
 cv:
-  output_format: "html" # "html" (default) or "latex"
-  # (Optional) Canva resume design ID for visual CV generation via /career-ops pdf.
-  # Find it in your Canva design URL: https://www.canva.com/design/DAxxxxxxx/...
-  # The ID starts with "D" and is 11 characters long.
+  output_format: "html"            # "html" (default) o "latex"
+  # (Opcional) ID de diseño de CV en Canva para generación visual vía /career-ops pdf.
   # canva_resume_design_id: "DAxxxxxxxxx"
 
-# Auto-PDF threshold during evaluation (used by `/career-ops pipeline` and
-# `bash batch/batch-runner.sh`).
+# Umbral de auto-generación de PDF durante evaluación
+# Una oferta genera su CV PDF automáticamente solo cuando su puntaje
+# es >= a este umbral. Generar un PDF tarda ~30-60s por oferta y la
+# mayoría de las ofertas en un scan puntúan 2.x/3.x y nunca llegan
+# a postulación real — así que el filtro evita renders al pedo.
 #
-# An offer's tailored CV PDF is auto-generated only when its score is
-# >= this threshold. Generating a PDF costs ~30-60s per offer (Playwright
-# launch + HTML render), and most offers in a scan score 2.x/3.x and never
-# become an actual application — so the gate avoids wasted renders.
-#
-# Default (key absent OR commented out): 3.0 — the original gate of
-# `/career-ops pipeline`. Both evaluation paths apply the same default, so
-# a batch run and an interactive run treat the same offer identically.
-#
-# Raise it (e.g. 4.0) to auto-generate PDFs only for stronger matches and
-# leave the rest report-only — those can still be produced on demand via
-# `/career-ops pdf {company-slug}`. Fractional thresholds work (e.g. 3.5 —
-# half-point scores like 3.5/5 occur in evaluations). Set it to 0 to
-# generate a PDF for every offer.
+# Default (clave ausente o comentada): 3.0
+# Subilo (ej. 4.0) para auto-generar PDFs solo para matches fuertes.
+# Ponelo en 0 para generar PDF para todas las ofertas.
 # auto_pdf_score_threshold: 4.0
+
+# Notificaciones y automatización
+notifications:
+  scan_reminder_days: 3           # Recordarme escanear portales cada N días
+  followup_check_days: 2          # Recordarme revisar seguimientos cada N días
+
+# Preferencias de búsqueda
+search_preferences:
+  # Tipos de empresa preferidos
+  company_types:
+    - "producto"                  # Empresa de producto (propio o SaaS)
+    - "startup_crecida"           # Startup serie A/B+
+    - "consultora"                # Consultora/Software factory
+  # Tamaños de empresa preferidos
+  company_sizes:
+    - "50-200"                    # Scale-up
+    - "200-1000"                  # Empresa mediana
+  # Industrias de interés
+  industries:
+    - "fintech"
+    - "e-commerce"
+    - "logistica"
+    - "salud"
+  # Lo que NO querés
+  deal_breakers:
+    - "Presencial 5 días full-time"
+    - "Guardias rotativas 24/7 sin compensación"
+    - "Stack legacy sin plan de modernización (ej: COBOL, VB6, jQuery sin framework)"

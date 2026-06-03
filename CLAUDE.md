@@ -1,12 +1,10 @@
-# Career-Ops -- AI Job Search Pipeline
+# Career-Ops AR — Pipeline Multi-Agente de Búsqueda Laboral 🇦🇷
 
-## Origin
+## Origen
 
-This system was built and used by [santifer](https://santifer.io) to evaluate 740+ job offers, generate 100+ tailored CVs, and land a Head of Applied AI role. The archetypes, scoring logic, negotiation scripts, and proof point structure all reflect his specific career search in AI/automation roles.
+Este sistema fue construido y usado por [santifer](https://santifer.io) para evaluar 740+ ofertas laborales, generar 100+ CVs personalizados y conseguir un rol de Head of Applied AI.
 
-The portfolio that goes with this system is also open source: [cv-santiago](https://github.com/santifer/cv-santiago).
-
-**It will work out of the box, but it's designed to be made yours.** If the archetypes don't match your career, the modes are in the wrong language, or the scoring doesn't fit your priorities -- just ask. You (AI Agent) can edit the user's files. The user says "change the archetypes to data engineering roles" and you do it. That's the whole point.
+**Esta versión AR** es un fork argentino que adapta completamente el sistema al mercado laboral local: español argentino, portales argentinos, vocabulario específico (aguinaldo, monotributo, obra social, etc.), y empresas argentinas pre-cargadas.
 
 ## Data Contract (CRITICAL)
 

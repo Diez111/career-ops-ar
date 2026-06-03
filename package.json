@@ -1,7 +1,7 @@
 {
-  "name": "career-ops",
-  "version": "1.8.1",
-  "description": "AI-powered job search pipeline built on Claude Code",
+  "name": "career-ops-ar",
+  "version": "2.0.0-ar",
+  "description": "Pipeline multi-agente de búsqueda laboral con IA para el mercado argentino. 100% en español. Basado en career-ops de santifer.",
   "scripts": {
     "doctor": "node doctor.mjs",
     "verify": "node verify-pipeline.mjs",
@@ -19,19 +19,32 @@
     "gemini:eval": "node gemini-eval.mjs"
   },
   "keywords": [
-    "ai",
-    "job-search",
+    "ia",
+    "busqueda-laboral",
+    "busqueda-de-trabajo",
+    "argentina",
+    "español",
     "claude-code",
-    "career",
+    "cv",
+    "ats",
+    "postulaciones",
+    "entrevistas",
     "career-ops",
     "careerops",
+    "empleo",
+    "trabajo",
+    "rrhh",
+    "mercado-laboral",
+    "latam",
+    "job-search",
+    "ai",
     "automation"
   ],
-  "author": "Santiago Fernández de Valderrama <hi@santifer.io> (https://santifer.io)",
-  "homepage": "https://santifer.io",
+  "author": "Fork argentino basado en career-ops de Santiago Fernández de Valderrama <hi@santifer.io> (https://santifer.io)",
+  "homepage": "https://github.com/Diez111/career-ops-ar",
   "repository": {
     "type": "git",
-    "url": "https://github.com/santifer/career-ops"
+    "url": "https://github.com/Diez111/career-ops-ar"
   },
   "license": "MIT",
   "dependencies": {

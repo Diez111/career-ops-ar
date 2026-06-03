@@ -1,56 +1,62 @@
-# Career-Ops — Canonical States
-# Source of truth for career-ops (writer) and dashboard (reader).
-# Both systems MUST use these exact states.
+# Career-Ops — Estados Canónicos (Español Argentino)
+# Fuente de verdad para career-ops (escritor) y dashboard (lector).
+# Ambos sistemas DEBEN usar estos estados exactos.
 #
-# Rule: The status field in applications.md must contain EXACTLY
-# one of these values (case-insensitive). No markdown bold (**),
-# no dates, no extra text. Dates go in the date column.
+# Regla: El campo estado en applications.md debe contener EXACTAMENTE
+# uno de estos valores (case-insensitive). Sin markdown bold (**),
+# sin fechas, sin texto extra. Las fechas van en la columna fecha.
 
 states:
   - id: evaluated
-    label: Evaluated
-    aliases: [evaluada]
-    description: Offer evaluated with report, pending decision
+    label: Evaluada
+    aliases: [evaluated, eval]
+    description: Oferta evaluada con reporte, pendiente de decisión
     dashboard_group: evaluated
 
   - id: applied
-    label: Applied
-    aliases: [aplicado, enviada, aplicada, sent]
-    description: Application submitted
+    label: Postulada
+    aliases: [applied, aplicado, aplicada, enviada, sent, postulado]
+    description: Postulación enviada
     dashboard_group: applied
 
   - id: responded
-    label: Responded
-    aliases: [respondido]
-    description: Company has responded (not yet interview)
+    label: Respondida
+    aliases: [responded, respondido, respuesta, contactaron]
+    description: La empresa respondió (todavía no es entrevista)
     dashboard_group: responded
 
+  - id: contacted
+    label: Contactada
+    aliases: [contacted, contactado, outbound, contacté]
+    description: El candidato contactó proactivamente (LinkedIn, email)
+    dashboard_group: contacted
+
   - id: interview
-    label: Interview
-    aliases: [entrevista]
-    description: Active interview process
+    label: Entrevista
+    aliases: [interview, entrevistado, proceso]
+    description: En proceso de entrevista activo
     dashboard_group: interview
 
   - id: offer
-    label: Offer
-    aliases: [oferta]
-    description: Offer received
+    label: Oferta
+    aliases: [offer, ofrecido, propuesta]
+    description: Oferta recibida
     dashboard_group: offer
 
   - id: rejected
-    label: Rejected
-    aliases: [rechazado, rechazada]
-    description: Rejected by company
+    label: Rechazada
+    aliases: [rejected, rechazado, no_quedé, descartado_por_empresa]
+    description: Rechazada por la empresa
     dashboard_group: rejected
 
   - id: discarded
-    label: Discarded
-    aliases: [descartado, descartada, cerrada, cancelada]
-    description: Discarded by candidate or offer closed
+    label: Descartada
+    aliases: [discarded, descartado, cerrada, cancelada, cerró, expirada]
+    description: Descartada por el candidato u oferta cerrada
     dashboard_group: discarded
 
   - id: skip
-    label: SKIP
-    aliases: [no_aplicar, no aplicar, skip, monitor]
-    description: Doesn't fit, don't apply
+    label: NO APLICAR
+    aliases: [skip, no_aplicar, no aplicar, monitor, descartar, ignorar]
+    description: No encaja, no postularse
     dashboard_group: skip

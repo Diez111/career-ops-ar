@@ -1,102 +1,155 @@
-# User Profile Context -- career-ops
+# Perfil del Usuario — career-ops (Español Argentino)
 
 <!-- ============================================================
-     THIS FILE IS YOURS. It will NEVER be auto-updated.
+     ESTE ARCHIVO ES TUYO. NUNCA se va a auto-actualizar.
      
-     Customize everything here: your archetypes, narrative,
-     proof points, negotiation scripts, location policy.
+     Personalizá todo acá: tus arquetipos, narrativa,
+     proof points, scripts de negociación, política de ubicación.
      
-     The system reads _shared.md (updatable) first, then this
-     file (your overrides). Your customizations always win.
+     El sistema lee _shared.md (actualizable) primero, y después
+     este archivo (tus overrides). Tus personalizaciones siempre ganan.
      ============================================================ -->
 
-## Your Target Roles
+## Tus Roles Objetivo
 
-<!-- Replace these with YOUR target roles. Examples:
-     - Senior Backend Engineer / Staff Platform Engineer
-     - AI Product Manager / Technical PM
-     - Data Engineer / ML Engineer
-     - DevOps / SRE / Platform
-     Whatever you're optimizing for. -->
+<!-- Reemplazá esto con TUS roles objetivo. Ejemplos:
+     - Desarrollador Backend Senior / Tech Lead
+     - Frontend React / Desarrollador Mobile
+     - DevOps / SRE / Cloud Engineer
+     - Data Engineer / Analista de Datos
+     - Product Manager / Technical PM
+     Lo que sea que estés buscando. -->
 
-| Archetype | Thematic axes | What they buy |
-|-----------|---------------|---------------|
-| **AI Platform / LLMOps Engineer** | Evaluation, observability, reliability, pipelines | Someone who puts AI in production with metrics |
-| **Agentic Workflows / Automation** | HITL, tooling, orchestration, multi-agent | Someone who builds reliable agent systems |
-| **Technical AI Product Manager** | GenAI/Agents, PRDs, discovery, delivery | Someone who translates business to AI product |
-| **AI Solutions Architect** | Hyperautomation, enterprise, integrations | Someone who designs end-to-end AI architectures |
-| **AI Forward Deployed Engineer** | Client-facing, fast delivery, prototyping | Someone who delivers AI solutions to clients fast |
-| **AI Transformation Lead** | Change management, adoption, org enablement | Someone who leads AI transformation in an org |
+| Arquetipo | Ejes temáticos | Lo que compran |
+|-----------|---------------|----------------|
+| **Desarrollo Backend** | APIs, microservicios, bases de datos, arquitectura, cloud | Alguien que arma sistemas escalables |
+| **Desarrollo Frontend** | React/Next.js, UI/UX, performance, accesibilidad | Alguien que construye interfaces de calidad |
+| **Data / ML / IA** | Pipelines, modelos, métricas, experimentación | Alguien que pone datos e IA en producción |
+| **DevOps / SRE / Infra** | CI/CD, Kubernetes, monitoreo, IaC | Alguien que mantiene sistemas confiables |
+| **Producto / PM** | Descubrimiento, roadmap, métricas, stakeholders | Alguien que traduce negocio a producto |
+| **Liderazgo Técnico** | Arquitectura, mentoring, estrategia, equipos | Alguien que lidera técnicamente |
 
-## Your Adaptive Framing
+## Tu Encuadre Adaptable
 
-<!-- Map YOUR projects to each archetype. Example:
-     | Platform / LLMOps | My monitoring dashboard project | article-digest.md |
-     | Agentic | My chatbot with HITL escalation | cv.md section 3 | -->
+<!-- Mapeá TUS proyectos a cada arquetipo. Ejemplo:
+     | Backend | Mi API de procesamiento de pagos | cv.md sección 3 |
+     | DevOps | Mi pipeline de CI/CD + monitoreo | article-digest.md | -->
 
-| If the role is... | Emphasize about you... | Proof point sources |
-|-------------------|------------------------|---------------------|
-| Platform / LLMOps | Production systems builder, observability, evals | article-digest.md + cv.md |
-| Agentic / Automation | Multi-agent orchestration, HITL, reliability | article-digest.md + cv.md |
-| Technical AI PM | Product discovery, PRDs, metrics | cv.md + article-digest.md |
-| Solutions Architect | System design, integrations, enterprise-ready | article-digest.md + cv.md |
-| Forward Deployed Engineer | Fast delivery, client-facing, prototype to prod | cv.md + article-digest.md |
-| AI Transformation Lead | Change management, team enablement, adoption | cv.md + article-digest.md |
+| Si el rol es... | Enfatizar sobre vos... | Fuentes de proof points |
+|-----------------|----------------------|------------------------|
+| Backend | Sistemas en producción, escalabilidad, APIs | article-digest.md + cv.md |
+| Frontend | Interfaces, performance, experiencia de usuario | article-digest.md + cv.md |
+| Data / ML | Pipelines, modelos en producción, métricas | article-digest.md + cv.md |
+| DevOps / SRE | Automatización, confiabilidad, respuesta a incidentes | cv.md + article-digest.md |
+| Producto | Descubrimiento, métricas de impacto, trade-offs | cv.md + article-digest.md |
+| Liderazgo | Mentoring, diseño de sistemas, gestión de equipos | cv.md + article-digest.md |
 
-## Your Exit Narrative
+## Tu Narrativa
 
-<!-- Replace with YOUR story. This frames everything. -->
+<!-- Reemplazá con TU historia. Esto encuadra todo. -->
 
-Use the candidate's exit story from `config/profile.yml` to frame ALL content:
-- **In PDF Summaries:** Bridge from past to future
-- **In STAR stories:** Reference proof points from article-digest.md
-- **In Draft Answers:** The transition narrative appears in the first response
+Usar tu historia profesional de `config/profile.yml` para encuadrar TODO el contenido:
+- **En Resúmenes de PDF:** Puente entre pasado y futuro
+- **En historias STAR:** Referenciar proof points de article-digest.md
+- **En borradores de respuestas:** La narrativa de transición aparece en la primera respuesta
 
-## Your Cross-cutting Advantage
+## Tu Ventaja Diferenciadora
 
-<!-- What's your "signature move"? What do you do that others can't? -->
+<!-- ¿Cuál es tu "golpe de firma"? ¿Qué hacés que otros no pueden? -->
 
-Frame profile as **"Technical builder with real-world proof"** that adapts framing to the role.
+Encuadrar tu perfil como **"perfil técnico con pruebas reales"** que adapta el encuadre al rol.
 
-## Your Portfolio / Demo
+## Tu Portfolio / Demo
 
-<!-- If you have a live demo, dashboard, or public project:
-     url: https://yoursite.dev/demo
-     password: demo-2026
-     when_to_share: "LLMOps, AI Platform roles" -->
+<!-- Si tenés demo en vivo, dashboard o proyecto público:
+     url: https://tusitio.com.ar/demo
+     clave: demo-2026
+     cuando_compartir: "Roles de backend, cloud, datos" -->
 
-If you have a live demo/dashboard (check profile.yml), offer access in applications for relevant roles.
+Si tenés una demo/dashboard en vivo (verificar profile.yml), ofrecer acceso en postulaciones para roles relevantes.
 
-## Your Comp Targets
+## Tus Objetivos de Compensación
 
-<!-- Research comp ranges for YOUR target roles -->
+<!-- Investigá rangos de compensación para TUS roles objetivo -->
 
-**General guidance:**
-- Use WebSearch for current market data (Glassdoor, Levels.fyi, Blind)
-- Frame by role title, not by skills
-- Contractor rates are typically 30-50% higher than employee base
+**Guía general:**
+- Usar WebSearch para datos de mercado actuales (OpenQube, Glassdoor, encuestas de Sysarmy)
+- Encuadrar por título de rol, no por skills
+- Para Argentina específicamente:
+  - Relación de dependencia: rango bruto mensual en ARS
+  - Contractor USD: rango mensual/horario en dólares
+  - Monotributo: facturación mensual equivalente
+- Tarifas contractor son típicamente 30-50% más altas que el bruto equivalente en relación de dependencia
+- Considerar aguinaldo/SAC, obra social y aportes como parte del paquete total
 
-## Your Negotiation Scripts
+## Tus Scripts de Negociación
 
-<!-- Adapt to YOUR situation, currency, location -->
+<!-- Adaptar a TU situación, moneda, ubicación -->
 
-**Salary expectations:**
-> "Based on market data for this role, I'm targeting [RANGE from profile.yml]. I'm flexible on structure -- what matters is the total package and the opportunity."
+**Expectativa salarial:**
+> "Basado en datos de mercado para este rol, estoy apuntando a un rango de [RANGO de profile.yml]. Soy flexible en la estructura — lo que importa es el paquete total y el desafío."
 
-**Geographic discount pushback:**
-> "The roles I'm competitive for are output-based, not location-based. My track record doesn't change based on postal code."
+**Cuando la oferta está por debajo del objetivo:**
+> "Estoy comparando con oportunidades en el rango de [rango superior]. Me atrae [empresa] por [razón]. ¿Podemos explorar [objetivo]?"
 
-**When offered below target:**
-> "I'm comparing with opportunities in the [higher range]. I'm drawn to [company] because of [reason]. Can we explore [target]?"
+**Negociación contractor vs relación de dependencia:**
+> "Para contractor, mi tarifa contempla que yo cubro obra social, aportes y vacaciones. En relación de dependencia, podemos charlar un bruto ajustado."
 
-## Your Location Policy
+## Tu Política de Ubicación
 
-<!-- Adapt to YOUR situation -->
+<!-- Adaptar a TU situación -->
 
-**In forms:**
-- Follow your actual availability from profile.yml
-- Specify timezone overlap in free-text fields
+**Para Argentina:**
+- Remoto dentro de Argentina es el estándar para roles tech
+- Híbrido en CABA/GBA es común (2-3 días oficina)
+- Presencial full está en declive pero existe en algunas empresas
+- Para contractor exterior: especificar huso horario y solapamiento
 
-**In evaluations (scoring):**
-- Remote dimension for hybrid outside your country: score **3.0** (not 1.0)
-- Only score 1.0 if JD says "must be on-site 4-5 days/week, no exceptions"
+**En formularios:**
+- Seguir tu disponibilidad real de profile.yml
+- Especificar solapamiento horario en campos de texto libre (Argentina es GMT-3)
+
+**En evaluaciones (puntuación):**
+- Remoto Argentina: 5.0
+- Híbrido CABA: 4.0 (ajustable según distancia)
+- Remoto LATAM: 4.0
+- Presencial full: 2.0-3.0 (según commuting)
+- Remoto global con solapamiento horario inviable: 2.0
+
+## Contexto del Mercado Laboral Argentino
+
+### Portales de empleo principales
+- **LinkedIn**: El más usado para roles tech. Perfil en español e inglés.
+- **ZonaJobs / Bumeran**: Portales generalistas argentinos
+- **Computrabajo**: Muy usado, amplio alcance
+- **GetOnBoard**: Startups tech LATAM
+- **Workana / Freelancer**: Freelance
+
+### Empresas tech destacadas en Argentina
+- **Mercado Libre**: Mayor empleador tech de LATAM
+- **Globant**: Consultora de software (NYSE: GLOB)
+- **Despegar**: Travel tech
+- **Ualá / Naranja X / Mercado Pago**: Fintech
+- **PedidosYa / Rappi**: Delivery tech
+- **Auth0 (Okta) / OLX / Navent**: Producto
+
+### Tendencias del mercado tech argentino (2024-2026)
+- Fuerte demanda de contractors para empresas de USA/UE
+- Crecimiento en IA, datos y automatización
+- Stack más demandado: React/Next.js, Node.js, Python, Go, AWS/GCP
+- Salarios en USD para contractors estables, en ARS para relación de dependencia bajo presión inflacionaria
+- Trabajo remoto consolidado como estándar
+
+### Vocabulario laboral argentino
+- "Búsqueda" / "Oferta" = Job opening
+- "Postularse" = Apply
+- "Relación de dependencia" = Full-time employment
+- "Monotributo" = Independent contractor (simplified tax)
+- "En blanco" = Fully registered employment
+- "Recibo de sueldo" = Pay stub
+- "Aguinaldo" / "SAC" = 13th salary (paid in two installments)
+- "Obra social" = Health insurance (union-based)
+- "Prepaga" = Private health insurance
+- "Aportes jubilatorios" = Retirement contributions
+- "Art. / ART" = Workers compensation insurance
+- "Convenio colectivo" = Collective bargaining agreement

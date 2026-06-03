@@ -1,8 +1,19 @@
-# Career-Ops -- AI Job Search Pipeline
+# Career-Ops AR — Pipeline Multi-Agente de Búsqueda Laboral 🇦🇷
 
-## Origin
+<!-- 
+     Fork argentino de career-ops (santifer/career-ops)
+     Adaptado 100% al español argentino y optimizado para
+     el mercado laboral de Argentina.
+     
+     Idioma por defecto: español argentino (modes/es/)
+     Moneda: ARS (relación de dependencia) / USD (contractor)
+-->
 
-This system was built and used by [santifer](https://santifer.io) to evaluate 740+ job offers, generate 100+ tailored CVs, and land a Head of Applied AI role. The archetypes, scoring logic, negotiation scripts, and proof point structure all reflect his specific career search in AI/automation roles.
+## Origen
+
+Este sistema fue construido y usado por [santifer](https://santifer.io) para evaluar 740+ ofertas laborales, generar 100+ CVs personalizados y conseguir un rol de Head of Applied AI. Los arquetipos, lógica de puntuación, scripts de negociación y estructura de proof points reflejan su búsqueda específica en roles de IA/automatización.
+
+**Esta versión AR** adapta completamente el sistema al mercado laboral argentino: español argentino, portales locales (ZonaJobs, Bumeran, Computrabajo, LinkedIn AR), empresas argentinas pre-cargadas (Mercado Libre, Globant, Ualá, etc.), tipos de contratación local (relación de dependencia, monotributo, contractor USD), y vocabulario específico (aguinaldo/SAC, obra social, prepaga, etc.).
 
 The portfolio that goes with this system is also open source: [cv-santiago](https://github.com/santifer/cv-santiago).
 
@@ -165,9 +176,20 @@ This system is designed to be customized by YOU (AI Agent). When the user asks y
 - "Change the CV template design" → edit `templates/cv-template.html`
 - "Adjust the scoring weights" → edit `modes/_profile.md` for user-specific weighting, or edit `modes/_shared.md` and `batch/batch-prompt.md` only when changing the shared system defaults for everyone
 
-### Language Modes
+### Lenguaje y Modos
 
-Default modes are in `modes/` (English). Additional language-specific modes are available:
+**Idioma por defecto: español argentino.** Los modos principales están en `modes/es/`. 
+
+Modos disponibles en otros idiomas:
+
+- **Español argentino (Argentina):** `modes/es/` ⭐ — traducción nativa con vocabulario argentino (aguinaldo/SAC, obra social, prepaga, monotributo, relación de dependencia, recibo de sueldo, etc.). Incluye `_shared.md`, `oferta.md` (evaluación), `postular.md` (postulación), `pipeline.md`, y 13 modos más.
+- **Inglés (default original):** `modes/` — modos originales en inglés
+- **Alemán (DACH):** `modes/de/`
+- **Francés:** `modes/fr/`
+- **Japonés:** `modes/ja/`
+- **Portugués:** `modes/pt/`
+- **Ruso:** `modes/ru/`
+- **Turco:** `modes/tr/`
 
 - **German (DACH market):** `modes/de/` — native German translations with DACH-specific vocabulary (13. Monatsgehalt, Probezeit, Kündigungsfrist, AGG, Tarifvertrag, etc.). Includes `_shared.md`, `angebot.md` (evaluation), `bewerben.md` (apply), `pipeline.md`.
 - **French (Francophone market):** `modes/fr/` — native French translations with France/Belgium/Switzerland/Luxembourg-specific vocabulary (CDI/CDD, convention collective SYNTEC, RTT, mutuelle, prévoyance, 13e mois, intéressement/participation, titres-restaurant, CSE, portage salarial, etc.). Includes `_shared.md`, `offre.md` (evaluation), `postuler.md` (apply), `pipeline.md`.
@@ -196,27 +218,30 @@ Default modes are in `modes/` (English). Additional language-specific modes are 
 
 **When NOT to:** If the user applies to English-language roles, even at French, German, Japanese, or Turkish companies, use the default English modes — *unless* the user has explicitly requested another mode in this conversation, or `language.modes_dir` is set in `config/profile.yml` (the explicit user preference always wins over JD-language detection).
 
-### Skill Modes
+### Modos Disponibles
 
-| If the user... | Mode |
-|----------------|------|
-| Pastes JD or URL | auto-pipeline (evaluate + report + PDF + tracker) |
-| Asks to evaluate offer | `oferta` |
-| Asks to compare offers | `ofertas` |
-| Wants LinkedIn outreach | `contacto` |
-| Asks for company research | `deep` |
-| Preps for interview at specific company | `interview-prep` |
-| Wants to generate CV/PDF | `pdf` |
-| Evaluates a course/cert | `training` |
-| Evaluates portfolio project | `project` |
-| Asks about application status | `tracker` |
-| Fills out application form | `apply` |
-| Searches for new offers | `scan` |
-| Processes pending URLs | `pipeline` |
-| Batch processes offers | `batch` |
-| Asks about rejection patterns or wants to improve targeting | `patterns` |
-| Asks about follow-ups or application cadence | `followup` |
-| Wants to update the system | `update` |
+**Modo por defecto:** español argentino (`modes/es/`). Los nombres en español tienen prioridad.
+
+| Si el usuario... | Modo (ES) | Modo (EN) |
+|-----------------|-----------|-----------|
+| Pega JD o URL | auto-pipeline | `auto-pipeline` |
+| Pide evaluar oferta | `oferta` | `oferta` |
+| Pide comparar ofertas | `comparar` | `ofertas` |
+| Quiere contacto LinkedIn | `contactar` | `contacto` |
+| Pide investigar empresa | `investigar` | `deep` |
+| Se prepara para entrevista | `entrevista` | `interview-prep` |
+| Quiere generar CV/PDF | `pdf` | `pdf` |
+| Evalúa curso/certificación | `entrenar` | `training` |
+| Evalúa proyecto portfolio | `proyecto` | `project` |
+| Pregunta estado postulaciones | `tracker` | `tracker` |
+| Completa formulario postulación | `postular` | `apply` |
+| Busca ofertas nuevas | `scan` | `scan` |
+| Procesa URLs pendientes | `pipeline` | `pipeline` |
+| Procesa ofertas en lote | `lote` | `batch` |
+| Analiza patrones de rechazo | `patrones` | `patterns` |
+| Hace seguimiento postulaciones | `seguimiento` | `followup` |
+| Exporta CV a LaTeX | `latex` | `latex` |
+| Quiere actualizar sistema | `update` | `update` |
 
 ### CV Source of Truth
 
