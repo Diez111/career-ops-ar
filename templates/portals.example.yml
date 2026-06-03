@@ -1,0 +1,685 @@
+# Configuración del Escáner de Portales (Argentina)
+#
+# Estrategia (4 niveles):
+#   0. Parser local → por empresa `parser:` para páginas SSR/estáticas (zero-token)
+#   1. Playwright → careers_url de cada empresa (tiempo real, confiable)
+#   2. HTTP JSON (WebFetch) → por empresa `api:` en tracked_companies
+#   3. WebSearch con filtros site: (descubrimiento amplio, puede estar desactualizado)
+#
+# CÓMO PERSONALIZAR:
+#   1. Copiá este archivo a portals.yml en la raíz del proyecto
+#   2. Editá title_filter.positive con TUS keywords de roles objetivo
+#   3. Agregá o quitá empresas en tracked_companies
+#   4. Ajustá search_queries para tus portales preferidos
+#   5. Poné enabled: false en empresas que no te interesen
+
+# -- Filtro de ubicación --
+# Filtra ofertas escaneadas por ubicación. Se aplica DESPUÉS del filtro de título,
+# ANTES del dedup. Si este bloque está ausente, todas las ubicaciones pasan.
+
+location_filter:
+  always_allow:
+    - "Argentina"
+    - "Buenos Aires"
+    - "CABA"
+    - "Capital Federal"
+    - "GBA"
+    - "Córdoba"
+    - "Rosario"
+    - "Mendoza"
+    - "La Plata"
+  allow:
+    - "Remoto"
+    - "Remote"
+    - "Argentina"
+    - "Buenos Aires"
+    - "CABA"
+    - "Capital Federal"
+    - "GBA"
+    - "Gran Buenos Aires"
+    - "Córdoba"
+    - "Rosario"
+    - "Mendoza"
+    - "La Plata"
+    - "Híbrido"
+    - "Hybrid"
+    - "Latinoamérica"
+    - "Latam"
+    - "LATAM"
+    - "South America"
+    - "América Latina"
+    - "Cualquier lugar"
+    - "Anywhere"
+  block:
+    - "Estados Unidos"
+    - "United States"
+    - "USA"
+    - "España"
+    - "Spain"
+    - "Madrid"
+    - "Barcelona"
+    - "Uruguay"
+    - "Montevideo"
+    - "Chile"
+    - "Santiago"
+    - "Colombia"
+    - "Bogotá"
+    - "Medellín"
+    - "México"
+    - "Mexico"
+    - "Ciudad de México"
+    - "CDMX"
+    - "Brasil"
+    - "Brazil"
+    - "São Paulo"
+    - "India"
+    - "Bengaluru"
+    - "Reino Unido"
+    - "United Kingdom"
+    - "London"
+    - "Germany"
+    - "Alemania"
+    - "Berlin"
+    - "Francia"
+    - "France"
+    - "Paris"
+
+# -- Filtro de título --
+title_filter:
+  positive:
+    # [PERSONALIZAR] Agregá keywords que coincidan con TUS roles objetivo
+    
+    # -- Desarrollo Backend --
+    - "Backend"
+    - "Back-end"
+    - "API"
+    - "Microservicios"
+    - "Microservices"
+    - "Node.js"
+    - "Python"
+    - "Go"
+    - "Golang"
+    - "Java"
+    - "Rust"
+    - "GraphQL"
+    - "REST"
+    - "Arquitectura"
+    - "Architect"
+    
+    # -- Desarrollo Frontend --
+    - "Frontend"
+    - "Front-end"
+    - "React"
+    - "Next.js"
+    - "Angular"
+    - "Vue"
+    - "TypeScript"
+    - "JavaScript"
+    - "UI"
+    - "UX"
+    - "Full Stack"
+    - "Full-Stack"
+    - "Fullstack"
+    
+    # -- Data / ML / IA --
+    - "Data Engineer"
+    - "Data Engineering"
+    - "Datos"
+    - "Machine Learning"
+    - "ML"
+    - "IA"
+    - "AI"
+    - "LLM"
+    - "GenAI"
+    - "Data Science"
+    - "Analytics"
+    - "ETL"
+    
+    # -- DevOps / SRE / Infra --
+    - "DevOps"
+    - "SRE"
+    - "Site Reliability"
+    - "Cloud"
+    - "AWS"
+    - "GCP"
+    - "Azure"
+    - "Infraestructura"
+    - "Infrastructure"
+    - "Kubernetes"
+    - "Docker"
+    - "CI/CD"
+    - "Platform Engineer"
+    
+    # -- Producto --
+    - "Product Manager"
+    - "Product Owner"
+    - "PO"
+    - "Technical PM"
+    - "Technical Product"
+    
+    # -- Liderazgo --
+    - "Tech Lead"
+    - "Technical Lead"
+    - "Team Lead"
+    - "Engineering Manager"
+    - "Staff Engineer"
+    - "Principal Engineer"
+    - "Arquitecto"
+    - "CTO"
+    - "VP of Engineering"
+    
+  negative:
+    # [PERSONALIZAR] Roles que querés excluir
+    - "Junior"
+    - "Jr."
+    - "Trainee"
+    - "Intern"
+    - "Pasante"
+    - "Pasantía"
+    - "Soporte Técnico"
+    - "Help Desk"
+    - "QA Manual"
+    - "Tester Manual"
+    - "Diseñador Gráfico"
+    - "Community Manager"
+    - "CM"
+    - "Data Entry"
+    - "Carga de Datos"
+    - "Ventas"
+    - "Sales"
+    - "Call Center"
+    - "Telemarketing"
+    - "Cobranzas"
+    - "Administrativo"
+    - "Atención al Cliente"
+    - "Cajero"
+    - "Repositor"
+    - "Cadete"
+    - "Chofer"
+    
+  seniority_boost:
+    - "Senior"
+    - "Sr."
+    - "Semi Senior"
+    - "SSr."
+    - "Staff"
+    - "Principal"
+    - "Lead"
+    - "Líder"
+    - "Head"
+    - "Director"
+    - "Gerente"
+    - "Manager"
+
+# -- Queries de búsqueda --
+# Cada query dispara un WebSearch. Usar site: para filtrar por portal.
+
+search_queries:
+  # -- LinkedIn Argentina --
+  - name: LinkedIn AR — Backend
+    query: 'site:linkedin.com/jobs "Backend" OR "Back-end" OR "API" OR "Microservicios" Argentina OR Buenos Aires OR remoto'
+    enabled: true
+
+  - name: LinkedIn AR — Frontend
+    query: 'site:linkedin.com/jobs "Frontend" OR "Front-end" OR "React" OR "Next.js" OR "TypeScript" Argentina OR Buenos Aires OR remoto'
+    enabled: true
+
+  - name: LinkedIn AR — Full Stack
+    query: 'site:linkedin.com/jobs "Full Stack" OR "Full-Stack" OR "Fullstack" Argentina OR Buenos Aires OR remoto'
+    enabled: true
+
+  - name: LinkedIn AR — DevOps/Cloud
+    query: 'site:linkedin.com/jobs "DevOps" OR "Cloud" OR "AWS" OR "GCP" OR "Kubernetes" OR "SRE" Argentina OR remoto'
+    enabled: true
+
+  - name: LinkedIn AR — Data/IA/ML
+    query: 'site:linkedin.com/jobs "Data Engineer" OR "Machine Learning" OR "IA" OR "AI" OR "Data Science" Argentina OR remoto'
+    enabled: true
+
+  - name: LinkedIn AR — Tech Lead
+    query: 'site:linkedin.com/jobs "Tech Lead" OR "Technical Lead" OR "Engineering Manager" OR "Staff Engineer" Argentina OR Buenos Aires'
+    enabled: true
+
+  - name: LinkedIn AR — Contractor/Remoto
+    query: 'site:linkedin.com/jobs remoto OR contractor "desarrollador" OR "developer" OR "engineer" LATAM OR Argentina'
+    enabled: true
+
+  # -- ZonaJobs --
+  - name: ZonaJobs — Desarrollo
+    query: 'site:zonajobs.com.ar "desarrollador" OR "developer" OR "programador" OR "backend" OR "frontend" OR "full stack"'
+    enabled: true
+
+  - name: ZonaJobs — Sistemas/Infra
+    query: 'site:zonajobs.com.ar "devops" OR "cloud" OR "infraestructura" OR "sistemas" OR "AWS" OR "kubernetes"'
+    enabled: true
+
+  - name: ZonaJobs — Datos/IA
+    query: 'site:zonajobs.com.ar "datos" OR "data" OR "inteligencia artificial" OR "machine learning" OR "analytics"'
+    enabled: true
+
+  # -- Bumeran --
+  - name: Bumeran — Desarrollo
+    query: 'site:bumeran.com.ar "desarrollador" OR "developer" OR "programador" OR "backend" OR "frontend" OR "full stack"'
+    enabled: true
+
+  - name: Bumeran — Sistemas
+    query: 'site:bumeran.com.ar "devops" OR "cloud" OR "infraestructura" OR "sistemas" OR "soporte IT"'
+    enabled: true
+
+  - name: Bumeran — Tecnología General
+    query: 'site:bumeran.com.ar "tecnología" OR "informática" OR "sistemas" senior OR semi senior OR lead'
+    enabled: true
+
+  # -- Computrabajo --
+  - name: Computrabajo — Desarrollo
+    query: 'site:computrabajo.com.ar "desarrollador" OR "developer" OR "programador" OR "backend" OR "frontend" OR "full stack"'
+    enabled: true
+
+  - name: Computrabajo — Sistemas/Redes
+    query: 'site:computrabajo.com.ar "devops" OR "sistemas" OR "redes" OR "infraestructura" OR "cloud"'
+    enabled: true
+
+  - name: Computrabajo — Datos
+    query: 'site:computrabajo.com.ar "datos" OR "data" OR "BI" OR "analytics" OR "business intelligence"'
+    enabled: true
+
+  # -- Indeed Argentina --
+  - name: Indeed AR — Tech General
+    query: 'site:ar.indeed.com "software engineer" OR "desarrollador" OR "backend" OR "frontend" OR "full stack" remoto OR Buenos Aires OR Córdoba'
+    enabled: true
+
+  - name: Indeed AR — Senior/Lead
+    query: 'site:ar.indeed.com "senior" OR "lead" OR "staff" "engineer" OR "desarrollador" remoto OR Argentina'
+    enabled: true
+
+  # -- GetOnBoard (Startups LATAM) --
+  - name: GetOnBoard — Tech LATAM
+    query: 'site:getonbrd.com "developer" OR "engineer" OR "desarrollador" remoto OR LATAM OR Argentina'
+    enabled: true
+
+  # -- Greenhouse (empresas internacionales con presencia en AR) --
+  - name: Greenhouse — Remote LATAM
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "LATAM" OR "Argentina" OR "Latin America" OR "Remote South America"'
+    enabled: true
+
+  - name: Greenhouse — Tech General LATAM
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "Software Engineer" OR "Backend Engineer" OR "Frontend Engineer" remote LATAM OR "South America"'
+    enabled: true
+
+  # -- Lever (empresas internacionales) --
+  - name: Lever — Remote LATAM
+    query: 'site:jobs.lever.co "LATAM" OR "Latin America" OR "Argentina" OR "Remote South America"'
+    enabled: true
+
+  # -- Ashby (empresas internacionales) --
+  - name: Ashby — Remote LATAM
+    query: 'site:jobs.ashbyhq.com "LATAM" OR "Latin America" OR "Argentina" OR "Remote South America"'
+    enabled: true
+
+  # -- Workana (Freelance LATAM) --
+  - name: Workana — Desarrollo
+    query: 'site:workana.com "desarrollador" OR "developer" OR "backend" OR "frontend"'
+    enabled: true
+
+  # -- Upwork / Freelancer (contractor USD) --
+  - name: Upwork — Desarrollo LATAM
+    query: 'site:upwork.com "developer" OR "engineer" LATAM OR "Latin America"'
+    enabled: true
+
+  # -- WeWorkRemotely / RemoteOK (contractor USD) --
+  - name: Remote LATAM Boards
+    query: 'site:weworkremotely.com OR site:remoteok.com "LATAM" OR "Latin America" OR "anywhere" "developer" OR "engineer"'
+    enabled: true
+
+# -- Empresas seguidas --
+# Empresas cuyas páginas de carrera se verifican directamente.
+
+tracked_companies:
+
+  # ============================================================
+  # -- Empresas de tecnología argentinas --
+  # ============================================================
+
+  - name: Mercado Libre
+    careers_url: https://careers.mercadolibre.com/
+    scan_method: websearch
+    scan_query: 'site:careers.mercadolibre.com OR "mercado libre" careers "software engineer" OR "desarrollador" OR "backend" OR "frontend" OR "devops"'
+    notes: "Mayor empleador tech de LATAM. Buenos Aires, Córdoba, Mendoza, remoto LATAM."
+    enabled: true
+
+  - name: Globant
+    careers_url: https://www.globant.com/es/careers
+    scan_method: websearch
+    scan_query: 'site:globant.com/careers OR "globant" careers "software engineer" OR "desarrollador" Argentina OR LATAM'
+    notes: "Consultora de software argentina (NYSE: GLOB). +29k empleados. Buenos Aires, Tandil, Córdoba, Chaco, Mar del Plata."
+    enabled: true
+
+  - name: Ualá
+    careers_url: https://www.uala.com.ar/trabaja-con-nosotros
+    scan_method: websearch
+    scan_query: '"ualá" OR "uala" careers "software engineer" OR "backend" OR "frontend" OR "devops" Argentina'
+    notes: "Fintech argentina. Buenos Aires."
+    enabled: true
+
+  - name: Naranja X
+    careers_url: https://www.naranjax.com/trabaja-en-naranja-x
+    scan_method: websearch
+    scan_query: '"naranja x" careers "software engineer" OR "desarrollador" OR "backend" OR "frontend" Argentina OR Córdoba'
+    notes: "Fintech. Principalmente Córdoba + remoto."
+    enabled: true
+
+  - name: Despegar
+    careers_url: https://www.despegar.com/trabaja-con-nosotros
+    scan_method: websearch
+    scan_query: '"despegar" careers "software engineer" OR "desarrollador" OR "backend" OR "frontend" OR "devops" Argentina'
+    notes: "Travel tech. Buenos Aires + remoto LATAM."
+    enabled: true
+
+  - name: PedidosYa
+    careers_url: https://www.pedidosya.com/trabaja-con-nosotros
+    scan_method: websearch
+    scan_query: '"pedidosya" OR "pedidos ya" careers "software engineer" OR "desarrollador" Buenos Aires OR Argentina'
+    notes: "Delivery tech (Delivery Hero). Buenos Aires + remoto."
+    enabled: true
+
+  - name: Pomelo
+    careers_url: https://pomelo.la/careers
+    scan_method: websearch
+    scan_query: '"pomelo" fintech careers "software engineer" OR "backend" OR "frontend" Buenos Aires OR Argentina OR LATAM'
+    notes: "Fintech latinoamericana de infraestructura de pagos. Buenos Aires + remoto LATAM."
+    enabled: true
+
+  - name: Lemon
+    careers_url: https://www.lemon.me/trabaja-con-nosotros
+    scan_method: websearch
+    scan_query: '"lemon cash" OR "lemon" fintech careers "software engineer" OR "backend" OR "react" Argentina'
+    notes: "Fintech cripto/Web3 argentina. Buenos Aires, remoto."
+    enabled: true
+
+  - name: Aivo
+    careers_url: https://www.aivo.co/trabaja-con-nosotros
+    scan_method: websearch
+    scan_query: '"aivo" careers "software engineer" OR "backend" OR "desarrollador" Argentina OR Córdoba'
+    notes: "IA conversacional. Córdoba + remoto."
+    enabled: true
+
+  - name: intive
+    careers_url: https://intive.com/careers
+    scan_method: websearch
+    scan_query: 'site:intive.com/careers OR "intive" careers "software engineer" OR "backend" OR "frontend" Argentina OR LATAM'
+    notes: "Consultora de software. Córdoba, Buenos Aires, Patagonia."
+    enabled: true
+
+  - name: Baufest
+    careers_url: https://www.baufest.com/trabaja-con-nosotros
+    scan_method: websearch
+    scan_query: '"baufest" careers "software engineer" OR "desarrollador" Argentina OR LATAM'
+    notes: "Consultora de software argentina."
+    enabled: true
+
+  - name: Flux IT
+    careers_url: https://www.fluxit.com.ar/trabaja-con-nosotros
+    scan_method: websearch
+    scan_query: '"flux it" OR "fluxit" careers "software engineer" OR "desarrollador" Buenos Aires OR Argentina'
+    notes: "Consultora de software argentina. Buenos Aires, Tandil, La Plata."
+    enabled: true
+
+  - name: Satellogic
+    careers_url: https://satellogic.com/careers/
+    scan_method: websearch
+    scan_query: '"satellogic" careers "software engineer" OR "backend" OR "data" Argentina'
+    notes: "Satélites y observación terrestre. Buenos Aires + remoto."
+    enabled: true
+
+  - name: Moova
+    careers_url: https://moova.io/careers
+    scan_method: websearch
+    scan_query: '"moova" careers "software engineer" OR "developer" OR "backend" Argentina'
+    notes: "Logística last mile. Buenos Aires."
+    enabled: true
+
+  - name: Auth0 (Okta)
+    careers_url: https://www.okta.com/company/careers/
+    scan_method: websearch
+    scan_query: '"okta" OR "auth0" careers "software engineer" OR "backend" OR "frontend" remote Argentina OR LATAM OR "South America"'
+    notes: "Auth/identity (fundada en Argentina, ahora parte de Okta). Remoto global."
+    enabled: true
+
+  - name: OLX
+    careers_url: https://www.olxgroup.com/careers/
+    scan_method: websearch
+    scan_query: '"olx" careers "software engineer" OR "backend" OR "frontend" remote Argentina OR LATAM'
+    notes: "Classifieds marketplace. Buenos Aires + remoto."
+    enabled: true
+
+  - name: Navent
+    careers_url: https://www.navent.com/trabaja-con-nosotros
+    scan_method: websearch
+    scan_query: '"navent" careers "software engineer" OR "desarrollador" Buenos Aires OR Argentina'
+    notes: "Grupo de portales de empleo (ZonaJobs, Bumeran) y clasificados."
+    enabled: true
+
+  # ============================================================
+  # -- Empresas internacionales con fuerte presencia en Argentina --
+  # ============================================================
+
+  - name: Rappi
+    careers_url: https://jobs.lever.co/rappi
+    scan_method: websearch
+    scan_query: 'site:jobs.lever.co/rappi OR "rappi" careers "software engineer" OR "backend" OR "frontend" Argentina OR LATAM'
+    notes: "Delivery y super-app LATAM. Buenos Aires + remoto LATAM."
+    enabled: true
+
+  - name: J.P. Morgan Argentina
+    careers_url: https://careers.jpmorgan.com/ar/es/home
+    scan_method: websearch
+    scan_query: '"jpmorgan" OR "jp morgan" careers Argentina "software engineer" OR "backend" OR "developer" Buenos Aires'
+    notes: "Banco de inversión con centro tecnológico en Buenos Aires. Grandes equipos de software."
+    enabled: true
+
+  - name: Accenture Argentina
+    careers_url: https://www.accenture.com/ar-es/careers
+    scan_method: websearch
+    scan_query: '"accenture" careers Argentina OR Buenos Aires "software engineer" OR "developer"'
+    notes: "Consultora global con fuerte presencia en Argentina. Buenos Aires, Córdoba, Rosario."
+    enabled: true
+
+  - name: EY Argentina
+    careers_url: https://www.ey.com/es_ar/careers
+    scan_method: websearch
+    scan_query: '"EY" OR "Ernst" careers Argentina "technology" OR "software" OR "developer" Buenos Aires'
+    notes: "Consultora Big 4. CABA + remoto."
+    enabled: true
+
+  - name: PwC Argentina
+    careers_url: https://www.pwc.com.ar/es/careers.html
+    scan_method: websearch
+    scan_query: '"pwc" OR "PricewaterhouseCoopers" careers Argentina "technology" OR "developer" Buenos Aires'
+    notes: "Consultora Big 4. Buenos Aires."
+    enabled: true
+
+  - name: IBM Argentina
+    careers_url: https://www.ibm.com/careers/ar-es/
+    scan_method: websearch
+    scan_query: '"IBM" careers Argentina OR Buenos Aires "software engineer" OR "developer" OR "backend"'
+    notes: "Tecnología. Buenos Aires, La Plata."
+    enabled: true
+
+  - name: Oracle Argentina
+    careers_url: https://www.oracle.com/ar/careers/
+    scan_method: websearch
+    scan_query: '"oracle" careers Argentina OR Buenos Aires "software engineer" OR "cloud" OR "developer"'
+    notes: "Base de datos y cloud. Buenos Aires."
+    enabled: true
+
+  - name: Medallia
+    careers_url: https://www.medallia.com/careers/
+    scan_method: websearch
+    scan_query: '"medallia" careers "software engineer" OR "backend" OR "frontend" Argentina OR LATAM OR Buenos Aires'
+    notes: "Customer experience SaaS. Oficina en Buenos Aires + remoto LATAM."
+    enabled: true
+
+  - name: Avature
+    careers_url: https://www.avature.net/careers/
+    scan_method: websearch
+    scan_query: '"avature" careers "software engineer" OR "backend" OR "frontend" Buenos Aires OR Argentina'
+    notes: "HR SaaS fundada en Argentina. Buenos Aires + remoto."
+    enabled: true
+
+  - name: Mural
+    careers_url: https://www.mural.co/careers
+    scan_method: websearch
+    scan_query: '"mural" careers "software engineer" OR "backend" OR "frontend" remote LATAM OR Argentina'
+    notes: "Collaboration SaaS (ex-MURAL.ly). Remoto LATAM, fundada en Argentina."
+    enabled: true
+
+  - name: Eventbrite
+    careers_url: https://www.eventbrite.com/careers/
+    scan_method: websearch
+    scan_query: '"eventbrite" careers "software engineer" OR "backend" Argentina OR LATAM'
+    notes: "Ticketing platform. Oficina en Mendoza."
+    enabled: true
+
+  - name: Technisys (Galileo/SoFi)
+    careers_url: https://www.technisys.com/careers/
+    scan_method: websearch
+    scan_query: '"technisys" OR "galileo" OR "sofi" careers "software engineer" OR "backend" Argentina OR LATAM'
+    notes: "Core banking latinoamericano. Buenos Aires + remoto LATAM."
+    enabled: true
+
+  # ============================================================
+  # -- Empresas internacionales con hiring LATAM remoto --
+  # ============================================================
+
+  - name: Deel
+    careers_url: https://www.deel.com/careers
+    scan_method: websearch
+    scan_query: 'site:deel.com/careers OR "deel" careers "software engineer" OR "backend" OR "frontend" remote LATAM OR "South America"'
+    notes: "HR/EOR platform. Remoto global."
+    enabled: true
+
+  - name: Remote.com
+    careers_url: https://remote.com/careers
+    scan_method: websearch
+    scan_query: '"remote.com" careers "software engineer" OR "backend" remote LATAM OR "anywhere"'
+    notes: "Global employment platform. Remoto global."
+    enabled: true
+
+  - name: GitLab
+    careers_url: https://about.gitlab.com/jobs/
+    scan_method: websearch
+    scan_query: 'site:about.gitlab.com/jobs OR "gitlab" careers "software engineer" OR "backend" remote LATAM OR "anywhere"'
+    notes: "DevOps platform. All-remote, contratan en LATAM."
+    enabled: true
+
+  - name: Automattic
+    careers_url: https://automattic.com/work-with-us/
+    scan_method: websearch
+    scan_query: '"automattic" OR "wordpress.com" careers "software engineer" OR "developer" remote anywhere'
+    notes: "WordPress.com, WooCommerce. All-remote."
+    enabled: true
+
+  - name: Shopify
+    careers_url: https://www.shopify.com/careers
+    scan_method: websearch
+    scan_query: '"shopify" careers "software engineer" OR "backend" OR "frontend" remote LATAM OR "anywhere"'
+    notes: "E-commerce platform. Remoto Americas."
+    enabled: true
+
+  - name: Stripe
+    careers_url: https://stripe.com/jobs
+    scan_method: websearch
+    scan_query: '"stripe" careers "software engineer" OR "backend" remote Americas OR LATAM'
+    notes: "Payments infra. Remoto Americas."
+    enabled: true
+
+  - name: Vercel
+    careers_url: https://vercel.com/careers
+    scan_method: websearch
+    scan_query: '"vercel" careers "software engineer" OR "backend" OR "frontend" remote Americas'
+    notes: "Next.js, Edge. Remoto Americas."
+    enabled: true
+
+  - name: Supabase
+    careers_url: https://supabase.com/careers
+    scan_method: websearch
+    scan_query: '"supabase" careers "software engineer" OR "backend" OR "DevRel" remote LATAM OR anywhere'
+    notes: "Open source Firebase alternative. All-remote."
+    enabled: true
+
+  - name: Cloudflare
+    careers_url: https://www.cloudflare.com/careers/
+    scan_method: websearch
+    scan_query: '"cloudflare" careers "software engineer" OR "backend" OR "systems" remote Americas OR LATAM'
+    notes: "CDN/Edge/Workers. Remoto Americas."
+    enabled: true
+
+  - name: Zapier
+    careers_url: https://zapier.com/jobs/
+    scan_method: websearch
+    scan_query: '"zapier" careers "software engineer" OR "backend" OR "frontend" remote anywhere OR LATAM'
+    notes: "Automation platform. All-remote."
+    enabled: true
+
+  - name: Buffer
+    careers_url: https://buffer.com/careers
+    scan_method: websearch
+    scan_query: '"buffer" careers "software engineer" OR "backend" OR "frontend" remote anywhere'
+    notes: "Social media management. All-remote."
+    enabled: true
+
+  - name: Doist
+    careers_url: https://doist.com/careers
+    scan_method: websearch
+    scan_query: '"doist" OR "todoist" OR "twist" careers "software engineer" OR "backend" remote anywhere'
+    notes: "Productivity tools. All-remote."
+    enabled: true
+
+  - name: Toptal
+    careers_url: https://www.toptal.com/careers
+    scan_method: websearch
+    scan_query: '"toptal" careers "software engineer" OR "backend" remote anywhere OR LATAM'
+    notes: "Talent marketplace. All-remote."
+    enabled: true
+
+  - name: X-Team
+    careers_url: https://x-team.com/developers
+    scan_method: websearch
+    scan_query: '"x-team" careers "software engineer" OR "developer" remote LATAM OR Argentina'
+    notes: "Developer community for contractors. Remoto LATAM."
+    enabled: true
+
+  - name: Belo
+    careers_url: https://www.belo.app/trabaja-con-nosotros
+    scan_method: websearch
+    scan_query: '"belo" fintech OR crypto careers "software engineer" OR "backend" Argentina OR LATAM OR Buenos Aires'
+    notes: "Fintech cripto latinoamericana. Buenos Aires + remoto."
+    enabled: true
+
+  - name: Buenbit
+    careers_url: https://www.buenbit.com/trabaja-con-nosotros
+    scan_method: websearch
+    scan_query: '"buenbit" fintech OR crypto careers "software engineer" OR "backend" OR "developer" Argentina OR Buenos Aires'
+    notes: "Exchange cripto argentino. Buenos Aires."
+    enabled: true
+
+  - name: Ripio
+    careers_url: https://www.ripio.com/ar/trabaja-con-nosotros/
+    scan_method: websearch
+    scan_query: '"ripio" fintech OR crypto careers "software engineer" OR "backend" OR "developer" Argentina OR LATAM'
+    notes: "Exchange cripto latinoamericano. Buenos Aires + LATAM."
+    enabled: true
+
+  - name: Santex
+    careers_url: https://www.santex.com/careers
+    scan_method: websearch
+    scan_query: '"santex" careers "software engineer" OR "developer" OR "backend" Argentina OR LATAM'
+    notes: "Consultora tecnológica. Córdoba + LATAM."
+    enabled: true
+
+  - name: Making Sense
+    careers_url: https://makingsense.com/careers/
+    scan_method: websearch
+    scan_query: '"making sense" careers "software engineer" OR "developer" Argentina OR LATAM'
+    notes: "Consultora de software. Mar del Plata, Buenos Aires + LATAM."
+    enabled: true

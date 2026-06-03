@@ -1,0 +1,62 @@
+# Career-Ops — Estados Canónicos (Español Argentino)
+# Fuente de verdad para career-ops (escritor) y dashboard (lector).
+# Ambos sistemas DEBEN usar estos estados exactos.
+#
+# Regla: El campo estado en applications.md debe contener EXACTAMENTE
+# uno de estos valores (case-insensitive). Sin markdown bold (**),
+# sin fechas, sin texto extra. Las fechas van en la columna fecha.
+
+states:
+  - id: evaluated
+    label: Evaluada
+    aliases: [evaluated, eval]
+    description: Oferta evaluada con reporte, pendiente de decisión
+    dashboard_group: evaluated
+
+  - id: applied
+    label: Postulada
+    aliases: [applied, aplicado, aplicada, enviada, sent, postulado]
+    description: Postulación enviada
+    dashboard_group: applied
+
+  - id: responded
+    label: Respondida
+    aliases: [responded, respondido, respuesta, contactaron]
+    description: La empresa respondió (todavía no es entrevista)
+    dashboard_group: responded
+
+  - id: contacted
+    label: Contactada
+    aliases: [contacted, contactado, outbound, contacté]
+    description: El candidato contactó proactivamente (LinkedIn, email)
+    dashboard_group: contacted
+
+  - id: interview
+    label: Entrevista
+    aliases: [interview, entrevistado, proceso]
+    description: En proceso de entrevista activo
+    dashboard_group: interview
+
+  - id: offer
+    label: Oferta
+    aliases: [offer, ofrecido, propuesta]
+    description: Oferta recibida
+    dashboard_group: offer
+
+  - id: rejected
+    label: Rechazada
+    aliases: [rejected, rechazado, no_quedé, descartado_por_empresa]
+    description: Rechazada por la empresa
+    dashboard_group: rejected
+
+  - id: discarded
+    label: Descartada
+    aliases: [discarded, descartado, cerrada, cancelada, cerró, expirada]
+    description: Descartada por el candidato u oferta cerrada
+    dashboard_group: discarded
+
+  - id: skip
+    label: NO APLICAR
+    aliases: [skip, no_aplicar, no aplicar, monitor, descartar, ignorar]
+    description: No encaja, no postularse
+    dashboard_group: skip

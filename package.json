@@ -1,0 +1,56 @@
+{
+  "name": "career-ops-ar",
+  "version": "2.0.0-ar",
+  "description": "Pipeline multi-agente de búsqueda laboral con IA para el mercado argentino. 100% en español. Basado en career-ops de santifer.",
+  "scripts": {
+    "doctor": "node doctor.mjs",
+    "verify": "node verify-pipeline.mjs",
+    "normalize": "node normalize-statuses.mjs",
+    "dedup": "node dedup-tracker.mjs",
+    "merge": "node merge-tracker.mjs",
+    "pdf": "node generate-pdf.mjs",
+    "sync-check": "node cv-sync-check.mjs",
+    "update:check": "node update-system.mjs check",
+    "update": "node update-system.mjs apply",
+    "rollback": "node update-system.mjs rollback",
+    "liveness": "node check-liveness.mjs",
+    "scan": "node scan.mjs",
+    "patterns": "node analyze-patterns.mjs",
+    "gemini:eval": "node gemini-eval.mjs"
+  },
+  "keywords": [
+    "ia",
+    "busqueda-laboral",
+    "busqueda-de-trabajo",
+    "argentina",
+    "español",
+    "claude-code",
+    "cv",
+    "ats",
+    "postulaciones",
+    "entrevistas",
+    "career-ops",
+    "careerops",
+    "empleo",
+    "trabajo",
+    "rrhh",
+    "mercado-laboral",
+    "latam",
+    "job-search",
+    "ai",
+    "automation"
+  ],
+  "author": "Fork argentino basado en career-ops de Santiago Fernández de Valderrama <hi@santifer.io> (https://santifer.io)",
+  "homepage": "https://github.com/Diez111/career-ops-ar",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Diez111/career-ops-ar"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "dotenv": "^17.0.0",
+    "js-yaml": "^4.1.1",
+    "playwright": "^1.58.1"
+  }
+}
