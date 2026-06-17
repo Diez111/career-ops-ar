@@ -1,6 +1,6 @@
 {
   "name": "career-ops-ar",
-  "version": "2.0.0-ar",
+  "version": "1.9.0",
   "description": "Pipeline multi-agente de búsqueda laboral con IA para el mercado argentino. 100% en español. Basado en career-ops de santifer.",
   "scripts": {
     "doctor": "node doctor.mjs",

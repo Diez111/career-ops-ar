@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.0](https://github.com/Diez111/career-ops-ar/compare/career-ops-v1.8.0...career-ops-v1.9.0) (2026-06-17)
+
+
+### Features
+
+* adaptación completa al español argentino (career-ops-ar) ([ff328f6](https://github.com/Diez111/career-ops-ar/commit/ff328f676f0865be6e737499b0ea0b8f4d00ba44))
+
 ## [1.8.0](https://github.com/santifer/career-ops/compare/career-ops-v1.7.1...career-ops-v1.8.0) (2026-05-15)
 
 
